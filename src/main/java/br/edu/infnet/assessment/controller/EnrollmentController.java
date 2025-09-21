@@ -2,29 +2,39 @@ package br.edu.infnet.assessment.controller;
 
 import br.edu.infnet.assessment.dto.EnrollmentRequest;
 import br.edu.infnet.assessment.dto.GradeRequest;
+import br.edu.infnet.assessment.model.Enrollment;
 import br.edu.infnet.assessment.service.EnrollmentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/enrollments")
+@RequestMapping("/api/v1/enrollments")
 @RequiredArgsConstructor
 public class EnrollmentController {
 
-	private final EnrollmentService service;
+	private final EnrollmentService enrollmentService;
+
+	@GetMapping
+	public List<Enrollment> list() {
+		return enrollmentService.listAll();
+	}
 
 	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public Long enroll(@RequestBody @Valid EnrollmentRequest req){
-		return service.enroll(req);
+	public Long enroll(@RequestBody @Valid EnrollmentRequest enrollmentRequest){
+		return enrollmentService.enroll(enrollmentRequest);
 	}
 
 	@PutMapping("/{id}/grade")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void assignGrade(@PathVariable Long id, @RequestBody @Valid GradeRequest req){
-		service.assignGrade(id, req);
+	public void assignGrade(@PathVariable Long id, @RequestBody @Valid GradeRequest gradeRequest){
+		enrollmentService.assignGrade(id, gradeRequest);
+	}
+
+	@DeleteMapping("/{id}")
+	public void withdrawal(@PathVariable Long id){
+		enrollmentService.withdrawal(id);
 	}
 }

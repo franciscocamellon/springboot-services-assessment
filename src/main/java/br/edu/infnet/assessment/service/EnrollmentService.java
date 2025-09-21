@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +23,12 @@ public class EnrollmentService {
 	private final StudentRepository studentRepository;
 	private final CourseRepository courseRepository;
 
-	@Transactional public Long enroll(EnrollmentRequest enrollmentRequest){
+	public List<Enrollment> listAll() {
+		return enrollmentRepository.findAll();
+	}
+
+	@Transactional
+	public Long enroll(EnrollmentRequest enrollmentRequest){
 		Student student = studentRepository.findById(enrollmentRequest.studentId())
 				.orElseThrow(() -> new IllegalArgumentException("Student not found"));
 		Course course = courseRepository.findById(enrollmentRequest.courseId())
@@ -34,10 +41,18 @@ public class EnrollmentService {
 		return enrollmentRepository.save(newEnrollment).getId();
 	}
 
-	@Transactional public void assignGrade(Long enrollmentId, GradeRequest gradeRequest){
+	@Transactional
+	public void assignGrade(Long enrollmentId, GradeRequest gradeRequest){
 		Enrollment enrollment = enrollmentRepository.findById(enrollmentId)
 				.orElseThrow(() -> new IllegalArgumentException("Enrollment not found"));
 		enrollment.setGrade(gradeRequest.grade());
 		enrollmentRepository.save(enrollment);
 	}
+
+	public void withdrawal(Long id) {
+		Enrollment enrollment = enrollmentRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Enrollment not found"));
+		enrollmentRepository.delete(enrollment);
+	}
+
 }

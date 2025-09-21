@@ -33,21 +33,10 @@ public class Enrollment {
 
     private OffsetDateTime updatedAt;
 
-    @PrePersist
+	@PrePersist
     void prePersist() { this.createdAt = OffsetDateTime.now(); }
 
     @PreUpdate
     void preUpdate() { this.updatedAt = OffsetDateTime.now(); }
 
-
-    @Override public boolean equals(Object o){
-        if(this==o) return true;
-        if(!(o instanceof Enrollment)) return false;
-        Enrollment e=(Enrollment)o;
-        return Objects.equals(id,e.id);
-    }
-
-    @Override public int hashCode(){
-        return Objects.hash(id);
-    }
 }

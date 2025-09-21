@@ -36,14 +36,4 @@ public class Course {
 
     @PreUpdate
     void preUpdate() { this.updatedAt = OffsetDateTime.now(); }
-
-    @Override public boolean equals(Object o) {
-        if(this==o) return true;
-        if(!(o instanceof Course c)) return false;
-        return Objects.equals(id,c.id);
-    }
-
-    @Override public int hashCode(){
-        return Objects.hash(id);
-    }
 }

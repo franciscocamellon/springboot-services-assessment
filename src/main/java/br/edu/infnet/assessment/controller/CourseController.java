@@ -4,7 +4,6 @@ import br.edu.infnet.assessment.dto.CourseRequest;
 import br.edu.infnet.assessment.dto.CourseResponse;
 import br.edu.infnet.assessment.model.Course;
 import br.edu.infnet.assessment.service.CourseService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/courses")
+@RequestMapping("/api/v1/courses")
 @RequiredArgsConstructor
 public class CourseController {
 
@@ -30,14 +29,25 @@ public class CourseController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(courseService.create(courseRequest));
 	}
 
-	@GetMapping("/{id}/approved")
-	public List<String> approved(@PathVariable Long id){
-		return courseService.approvedStudents(id);
+	@PutMapping("/{code}")
+	public ResponseEntity<CourseResponse> update(@PathVariable(name = "code") String code, @RequestBody CourseRequest courseRequest) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(courseService.updateCourse(code, courseRequest));
 	}
 
-	@GetMapping("/{id}/failed")
-	public List<String> failed(@PathVariable Long id){
-		return courseService.failedStudents(id);
+	@DeleteMapping("/{code}")
+	public ResponseEntity<CourseResponse> delete(@PathVariable(name = "code") String code) {
+		courseService.deleteCourse(code);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
+	@GetMapping("/{code}/approved")
+	public ResponseEntity<List<String>> approved(@PathVariable(name = "code") String code){
+		return ResponseEntity.status(HttpStatus.CREATED).body(courseService.approvedStudents(code));
+	}
+
+	@GetMapping("/{code}/failed")
+	public ResponseEntity<List<String>> failed(@PathVariable(name = "code") String code){
+		return ResponseEntity.status(HttpStatus.CREATED).body(courseService.failedStudents(code));
 	}
 
 }
