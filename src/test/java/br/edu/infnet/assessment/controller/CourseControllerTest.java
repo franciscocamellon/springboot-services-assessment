@@ -2,11 +2,10 @@ package br.edu.infnet.assessment.controller;
 
 import br.edu.infnet.assessment.dto.CourseRequest;
 import br.edu.infnet.assessment.dto.CourseResponse;
-import br.edu.infnet.assessment.model.Course;
+import br.edu.infnet.assessment.entities.Course;
 import br.edu.infnet.assessment.service.CourseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

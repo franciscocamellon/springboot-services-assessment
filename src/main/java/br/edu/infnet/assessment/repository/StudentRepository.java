@@ -1,6 +1,6 @@
 package br.edu.infnet.assessment.repository;
 
-import br.edu.infnet.assessment.model.Student;
+import br.edu.infnet.assessment.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

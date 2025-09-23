@@ -1,11 +1,10 @@
-package br.edu.infnet.assessment.model;
+package br.edu.infnet.assessment.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 
 import java.time.OffsetDateTime;
-import java.util.Objects;
 
 @Getter
 @Setter

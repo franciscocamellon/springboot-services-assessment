@@ -2,9 +2,9 @@ package br.edu.infnet.assessment.service;
 
 import br.edu.infnet.assessment.dto.EnrollmentRequest;
 import br.edu.infnet.assessment.dto.GradeRequest;
-import br.edu.infnet.assessment.model.Course;
-import br.edu.infnet.assessment.model.Enrollment;
-import br.edu.infnet.assessment.model.Student;
+import br.edu.infnet.assessment.entities.Course;
+import br.edu.infnet.assessment.entities.Enrollment;
+import br.edu.infnet.assessment.entities.Student;
 import br.edu.infnet.assessment.repository.CourseRepository;
 import br.edu.infnet.assessment.repository.EnrollmentRepository;
 import br.edu.infnet.assessment.repository.StudentRepository;

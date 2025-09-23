@@ -2,7 +2,7 @@ package br.edu.infnet.assessment.controller;
 
 import br.edu.infnet.assessment.dto.EnrollmentRequest;
 import br.edu.infnet.assessment.dto.GradeRequest;
-import br.edu.infnet.assessment.model.Enrollment;
+import br.edu.infnet.assessment.entities.Enrollment;
 import br.edu.infnet.assessment.service.EnrollmentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

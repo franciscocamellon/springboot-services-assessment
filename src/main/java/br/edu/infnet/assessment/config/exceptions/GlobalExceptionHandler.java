@@ -1,4 +1,4 @@
-package br.edu.infnet.assessment.config;
+package br.edu.infnet.assessment.config.exceptions;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
