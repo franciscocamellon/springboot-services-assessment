@@ -2,7 +2,7 @@ package br.edu.infnet.assessment.controller;
 
 import br.edu.infnet.assessment.dto.CourseRequest;
 import br.edu.infnet.assessment.dto.CourseResponse;
-import br.edu.infnet.assessment.model.Course;
+import br.edu.infnet.assessment.entities.Course;
 import br.edu.infnet.assessment.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

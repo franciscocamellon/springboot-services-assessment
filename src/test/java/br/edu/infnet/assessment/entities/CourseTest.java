@@ -1,4 +1,4 @@
-package br.edu.infnet.assessment.model;
+package br.edu.infnet.assessment.entities;
 
 import br.edu.infnet.assessment.repository.CourseRepository;
 import org.junit.jupiter.api.Test;

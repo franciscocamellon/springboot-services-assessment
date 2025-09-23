@@ -1,9 +1,9 @@
 package br.edu.infnet.assessment.service;
 
-import br.edu.infnet.assessment.config.NotFoundException;
+import br.edu.infnet.assessment.config.exceptions.NotFoundException;
 import br.edu.infnet.assessment.dto.CourseRequest;
 import br.edu.infnet.assessment.dto.CourseResponse;
-import br.edu.infnet.assessment.model.Course;
+import br.edu.infnet.assessment.entities.Course;
 import br.edu.infnet.assessment.repository.CourseRepository;
 import br.edu.infnet.assessment.repository.EnrollmentRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,9 +1,9 @@
 package br.edu.infnet.assessment.service;
 
-import br.edu.infnet.assessment.config.NotFoundException;
+import br.edu.infnet.assessment.config.exceptions.NotFoundException;
 import br.edu.infnet.assessment.dto.StudentRequest;
 import br.edu.infnet.assessment.dto.StudentResponse;
-import br.edu.infnet.assessment.model.Student;
+import br.edu.infnet.assessment.entities.Student;
 import br.edu.infnet.assessment.repository.StudentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
